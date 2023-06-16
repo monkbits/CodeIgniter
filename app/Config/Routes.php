@@ -6,6 +6,7 @@ namespace Config;
 $routes = Services::routes();
 
 use App\controllers\News;
+use App\controllers\Pages;
 
 /*
  * --------------------------------------------------------------------
@@ -34,6 +35,8 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('news/(:segment)', [News::class, 'view']);
 $routes->get('news', [News::class, 'index']);
+$routes->get('pages',[Pages::class, 'view']);
+$routes->get('(:segment)',[Pages::class, 'view']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
